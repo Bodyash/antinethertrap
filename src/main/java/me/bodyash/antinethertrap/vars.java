@@ -2,9 +2,8 @@ package me.bodyash.antinethertrap;
 
 import java.util.HashMap;
 
-public class vars
-{
-  public vars() {}
+public class Vars {
+
   
   public static String c(String chat) {
     String message = org.bukkit.ChatColor.translateAlternateColorCodes('&', chat);
