@@ -1,4 +1,5 @@
 #in seconds (use 1-4seconds)
-check-interval: 2
+check-interval: 1
+async: true
 trap-deactivated-msg: 'Trap &cDeactivated'
 trap-found-timer-msg: 'Trap &cFound!&r De-activation after %s seconds'

@@ -4,7 +4,6 @@ import java.io.File;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitTask;
 
 public class Main extends JavaPlugin {
 
@@ -19,8 +18,13 @@ public class Main extends JavaPlugin {
 			saveDefaultConfig();
 		}
 		c = getConfig();
-		long delay = (c.getInt("place-idle-time") * 20);
-		BukkitTask TaskName = new Looper(c).runTaskTimerAsynchronously(this, 20L, delay);
+		long delay = (c.getInt("check-interval") * 20);
+		if (c.getBoolean("async")){
+			new Looper(c).runTaskTimerAsynchronously(this, 20L, delay);
+		}else{
+			new Looper(c).runTaskTimer(this, 20L, delay);
+		}
+		
 	}
 
 }
